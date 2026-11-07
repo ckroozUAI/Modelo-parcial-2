@@ -19,7 +19,7 @@ namespace ENTITIES
 
         public decimal Precio { get; set; }
 
-
+        public int IdCategoria { get; set; }
         public virtual Categoria IdCategoriaNavigation { get; set; } = null!;
     }
 }

@@ -44,7 +44,7 @@ namespace DAL
 
         public AplicacionEntity getById(int id)
         {
-            AplicacionEntity entity = new AplicacionEntity();
+            AplicacionEntity entity = null;
             try
             {
                 using (var dbContext = new ModeloParcialContext())
@@ -52,9 +52,7 @@ namespace DAL
                     var entidad = dbContext.Aplicacion.FirstOrDefaultAsync(e=>e.Id==id);
                     if (entidad.Result !=null)
                     {
-
-                        entity = AplicacionMapper.toEntity(entidad.Result);
-                             
+                        entity = AplicacionMapper.toEntity(entidad.Result);      
                         
                     }
                     return entity;
@@ -68,5 +66,64 @@ namespace DAL
 
 
         }
+
+
+
+        public void save(AplicacionEntity entity)
+        {
+            try
+            {
+                var model = AplicacionMapper.toModel(entity);
+                using (var dbContext = new ModeloParcialContext())
+                { 
+                    dbContext.Aplicacion.Add(model);
+                    dbContext.SaveChanges();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
+
+        public void update(AplicacionEntity entity)
+        {
+            try
+            {
+                var model = AplicacionMapper.toModel(entity);
+                using (var dbContext = new ModeloParcialContext())
+                {
+                    dbContext.Update(model);
+                    dbContext.SaveChanges();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void delete(int id)
+        {
+            try
+            { 
+                using (var dbContext = new ModeloParcialContext())
+                {
+                    var e= dbContext.Aplicacion.FirstOrDefault(x => x.Id == id);
+                    dbContext.Remove(e!);
+                    dbContext.SaveChanges();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            } 
+        }
+
     }
 }

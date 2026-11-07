@@ -22,5 +22,18 @@ namespace BLL
                 throw ex;   
             }
         }
+
+        public CategoriaEntity getById(int id)
+        {
+            try
+            {
+                return this.dao.getById(id);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

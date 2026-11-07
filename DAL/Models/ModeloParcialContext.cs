@@ -21,7 +21,7 @@ public partial class ModeloParcialContext : DbContext
     public virtual DbSet<Categoria> Categoria { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=030-L3-03-10208;Database=UAIStore;Trusted_Connection=True;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer(ConeccionString.getConectionString());
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

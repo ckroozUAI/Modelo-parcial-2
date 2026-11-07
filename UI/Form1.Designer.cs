@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            lblCantidad = new Label();
+            comboBox1 = new ComboBox();
+            label10 = new Label();
             btnAltaGuardar = new Button();
             btnAltaAgregar = new Button();
             txtAltaPrecio = new TextBox();
@@ -52,15 +55,19 @@
             label7 = new Label();
             label8 = new Label();
             dataGridView1 = new DataGridView();
-            label10 = new Label();
-            comboBox1 = new ComboBox();
+            groupBox3 = new GroupBox();
+            txtEliminar = new TextBox();
+            label11 = new Label();
+            btnEliminar = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(lblCantidad);
             groupBox1.Controls.Add(comboBox1);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(btnAltaGuardar);
@@ -80,6 +87,31 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Alta";
             // 
+            // lblCantidad
+            // 
+            lblCantidad.AutoSize = true;
+            lblCantidad.Location = new Point(297, 80);
+            lblCantidad.Name = "lblCantidad";
+            lblCantidad.Size = new Size(0, 15);
+            lblCantidad.TabIndex = 12;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(150, 141);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(98, 23);
+            comboBox1.TabIndex = 11;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(28, 140);
+            label10.Name = "label10";
+            label10.Size = new Size(58, 15);
+            label10.TabIndex = 10;
+            label10.Text = "Categoria";
+            // 
             // btnAltaGuardar
             // 
             btnAltaGuardar.AllowDrop = true;
@@ -89,6 +121,7 @@
             btnAltaGuardar.TabIndex = 9;
             btnAltaGuardar.Text = "Guardar";
             btnAltaGuardar.UseVisualStyleBackColor = true;
+            btnAltaGuardar.Click += btnAltaGuardar_Click;
             // 
             // btnAltaAgregar
             // 
@@ -99,6 +132,7 @@
             btnAltaAgregar.TabIndex = 8;
             btnAltaAgregar.Text = "Agregar";
             btnAltaAgregar.UseVisualStyleBackColor = true;
+            btnAltaAgregar.Click += btnAltaAgregar_Click;
             // 
             // txtAltaPrecio
             // 
@@ -210,6 +244,7 @@
             btnModificar.TabIndex = 19;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // txtModificacionPrecio
             // 
@@ -283,28 +318,51 @@
             dataGridView1.Size = new Size(484, 347);
             dataGridView1.TabIndex = 2;
             // 
-            // label10
+            // groupBox3
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(28, 140);
-            label10.Name = "label10";
-            label10.Size = new Size(58, 15);
-            label10.TabIndex = 10;
-            label10.Text = "Categoria";
+            groupBox3.Controls.Add(btnEliminar);
+            groupBox3.Controls.Add(txtEliminar);
+            groupBox3.Controls.Add(label11);
+            groupBox3.Location = new Point(12, 383);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(389, 55);
+            groupBox3.TabIndex = 3;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Eliminar";
             // 
-            // comboBox1
+            // txtEliminar
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(150, 141);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(98, 23);
-            comboBox1.TabIndex = 11;
+            txtEliminar.Location = new Point(112, 26);
+            txtEliminar.Name = "txtEliminar";
+            txtEliminar.Size = new Size(100, 23);
+            txtEliminar.TabIndex = 23;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(50, 29);
+            label11.Name = "label11";
+            label11.Size = new Size(18, 15);
+            label11.TabIndex = 22;
+            label11.Text = "ID";
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.AllowDrop = true;
+            btnEliminar.Location = new Point(242, 23);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(125, 26);
+            btnEliminar.TabIndex = 22;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(934, 450);
+            Controls.Add(groupBox3);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -315,6 +373,8 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -346,5 +406,10 @@
         private Label label8;
         private ComboBox comboBox1;
         private Label label10;
+        private Label lblCantidad;
+        private GroupBox groupBox3;
+        private TextBox txtEliminar;
+        private Label label11;
+        private Button btnEliminar;
     }
 }

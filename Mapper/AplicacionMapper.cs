@@ -19,8 +19,23 @@ namespace Mapper
             entity.Desarrolladora=actividadDB.Desarrolladora;
             entity.Descripcion=actividadDB.Descripcion;
             entity.Precio=actividadDB.Precio;
+            entity.IdCategoria=actividadDB.IdCategoria;
 
             return entity;
+        }
+
+        public static Aplicacion toModel(AplicacionEntity entity)
+        {
+            var model = new Aplicacion();
+
+            model.Id = entity.Id;
+            model.Titulo = entity.Titulo;
+            model.Desarrolladora = entity.Desarrolladora;
+            model.Descripcion = entity.Descripcion;
+            model.Precio = entity.Precio;
+            model.IdCategoria = entity.IdCategoria;
+
+            return model;
         }
     }
 }

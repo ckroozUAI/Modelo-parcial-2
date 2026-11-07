@@ -41,19 +41,17 @@ namespace DAL
 
         }
 
-        public AplicacionEntity getById(int id)
+        public CategoriaEntity getById(int id)
         {
-            AplicacionEntity entity = new AplicacionEntity();
+            CategoriaEntity entity=null;
             try
             {
                 using (var dbContext = new ModeloParcialContext())
                 {
-                    var entidad = dbContext.Aplicacion.FirstOrDefaultAsync(e => e.Id == id);
+                    var entidad = dbContext.Categoria.FirstOrDefaultAsync(e => e.Id == id);
                     if (entidad.Result != null)
                     {
-
-                        entity = AplicacionMapper.toEntity(entidad.Result);
-
+                        entity = CategoriaMapper.toEntity(entidad.Result);
 
                     }
                     return entity;
