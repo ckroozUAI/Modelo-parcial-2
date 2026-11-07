@@ -1,6 +1,7 @@
 ﻿using DAL.Models;
 using ENTITIES;
 using Mapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,34 @@ namespace DAL
                         }
                     }
                     return listEntity;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+
+        }
+
+        public AplicacionEntity getById(int id)
+        {
+            AplicacionEntity entity = new AplicacionEntity();
+            try
+            {
+                using (var dbContext = new ModeloParcialContext())
+                {
+                    var entidad = dbContext.Aplicacion.FirstOrDefaultAsync(e => e.Id == id);
+                    if (entidad.Result != null)
+                    {
+
+                        entity = AplicacionMapper.toEntity(entidad.Result);
+
+
+                    }
+                    return entity;
                 }
 
             }
